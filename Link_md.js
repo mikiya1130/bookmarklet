@@ -4,6 +4,12 @@
 javascript: (() => {
   var href = location.href;
   var title = document.title;
+
+  // タイトルの先頭から "<数字>. " パターンを削除
+  title = title.replace(/^\d+\.\s+/, '');
+  // さらにその後の "(<数字>) " パターンを削除
+  title = title.replace(/^\(\d+\)\s+/, '');
+
   var text = "[" + title + "](" + href + ")";
 
   navigator.clipboard
